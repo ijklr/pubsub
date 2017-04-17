@@ -15,6 +15,14 @@
   </properties>
 
   <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>1.7.25</version>
+    </dependency>
+
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -31,7 +39,25 @@
     <dependency>
       <groupId>com.google.cloud</groupId>
       <artifactId>google-cloud-monitoring</artifactId>
-      <version>0.11.0-alpha</version>
+      <version>0.12.0-alpha</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.apis</groupId>
+      <artifactId>google-api-services-monitoring</artifactId>
+      <version>v3-rev396-1.22.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.protobuf</groupId>
+      <artifactId>protobuf-java</artifactId>
+      <version>3.2.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.asynchttpclient</groupId>
+      <artifactId>async-http-client</artifactId>
+      <version>2.1.0-alpha11</version>
     </dependency>
 
   </dependencies>
@@ -43,6 +69,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.6.1</version>
         <configuration>
           <source>1.8</source>
           <target>1.8</target>
@@ -50,5 +77,40 @@
       </plugin>
     </plugins>
   </build>
+
+
+  <!--<profiles>-->
+
+
+    <!--<profile>-->
+      <!--<id>coverage</id>-->
+      <!--<build>-->
+        <!--<plugins>-->
+          <!--<plugin>-->
+            <!--<groupId>com.googlecode.maven-download-plugin</groupId>-->
+            <!--<artifactId>download-maven-plugin</artifactId>-->
+            <!--<version>1.2.0</version>-->
+            <!--<configuration>-->
+              <!--<overwrite>true</overwrite>-->
+              <!--<skipCache>true</skipCache>-->
+              <!--<outputDirectory>${project.basedir}/src/main/proto</outputDirectory>-->
+            <!--</configuration>-->
+            <!--<executions>-->
+              <!--<execution>-->
+                <!--<id>feedback-api-proto</id>-->
+                <!--<phase>validate</phase>-->
+                <!--<configuration>-->
+                  <!--<url>https://ghe.spotify.net/raw/context/fb-user-webhooks/master/src/main/proto/fbuserwebhooks.proto</url>-->
+               <!--</configuration>-->
+                <!--<goals>-->
+                  <!--<goal>wget</goal>-->
+                <!--</goals>-->
+              <!--</execution>-->
+            <!--</executions>-->
+          <!--</plugin>-->
+        <!--</plugins>-->
+      <!--</build>-->
+    <!--</profile>-->
+  <!--</profiles>-->
 
 </project>
